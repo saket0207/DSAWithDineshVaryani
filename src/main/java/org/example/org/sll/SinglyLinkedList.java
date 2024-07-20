@@ -29,8 +29,11 @@ public class SinglyLinkedList {
         displayList(sll.head);
         insertNodeAtEnd(sll.head, 22);
         displayList(sll.head);
+
         sll.head = insertAtPosition(sll.head, 32, 5);
         displayList(sll.head);
+        int data = findMiddleNode(sll.head);
+        System.out.println(data);
         sll.head = deleteAtStart(sll.head);
         displayList(sll.head);
         deleteLastNode(sll.head);
@@ -41,6 +44,16 @@ public class SinglyLinkedList {
         System.out.println(position);
         sll.head = reverseLinkedList(sll.head);
         displayList(sll.head);
+
+    }
+
+    private static int findMiddleNode(ListNode head) {
+        ListNode temp1 = head, temp2 = head;
+        while (temp2!=null && temp2.next != null){
+            temp2 = temp2.next.next;
+            temp1 = temp1.next;
+        }
+        return temp1.data;
     }
 
     private static ListNode reverseLinkedList(ListNode head) {
