@@ -44,12 +44,23 @@ public class SinglyLinkedList {
         System.out.println(position);
         sll.head = reverseLinkedList(sll.head);
         displayList(sll.head);
-        int result = findNthNodeFromEnd(sll.head);
+        int result = findNthNodeFromEnd(sll.head, 2);
         System.out.println(result);
     }
 
-    private static int findNthNodeFromEnd(ListNode head) {
-        return 0;
+    private static int findNthNodeFromEnd(ListNode head, int n) {
+        ListNode mainPtr = head;
+        ListNode refPtr = head;
+        int count = 0;
+        while(count < n){
+            refPtr = refPtr.next;
+            count++;
+        }
+        while(refPtr != null){
+            refPtr = refPtr.next;
+            mainPtr = mainPtr.next;
+        }
+        return mainPtr.data;
     }
 
     private static int findMiddleNode(ListNode head) {
