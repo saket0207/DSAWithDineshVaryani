@@ -44,7 +44,12 @@ public class SinglyLinkedList {
         System.out.println(position);
         sll.head = reverseLinkedList(sll.head);
         displayList(sll.head);
+        int result = findNthNodeFromEnd(sll.head);
+        System.out.println(result);
+    }
 
+    private static int findNthNodeFromEnd(ListNode head) {
+        return 0;
     }
 
     private static int findMiddleNode(ListNode head) {
