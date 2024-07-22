@@ -6,3 +6,4 @@
 3. Delete Last Node
 4. **Reverse a Singly Linked List**
 5. Find middle node in Singly Linked List
+6. Find nth node from end in Singly Linked List
