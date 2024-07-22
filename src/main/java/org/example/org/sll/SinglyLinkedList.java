@@ -46,6 +46,48 @@ public class SinglyLinkedList {
         displayList(sll.head);
         int result = findNthNodeFromEnd(sll.head, 2);
         System.out.println(result);
+
+        SinglyLinkedList sortedSll = new SinglyLinkedList();
+        ListNode head = new ListNode(1);
+        sortedSll.head = head;
+        insertNodeAtEnd(sortedSll.head, 1);
+        insertNodeAtEnd(sortedSll.head, 1);
+        insertNodeAtEnd(sortedSll.head, 2);
+        insertNodeAtEnd(sortedSll.head, 2);
+        insertNodeAtEnd(sortedSll.head, 3);
+        insertNodeAtEnd(sortedSll.head, 3);
+        insertNodeAtEnd(sortedSll.head, 3);
+        displayList(sortedSll.head);
+        removeDuplicateFromSortedSLL(sortedSll.head);
+        displayList(sortedSll.head);
+        removeDuplicateFromSortedSLList(sortedSll.head);
+        displayList(sortedSll.head);
+    }
+
+    private static void removeDuplicateFromSortedSLL(ListNode head) {
+        ListNode temp1 = head, temp2 = head.next;
+        while(temp2 != null){
+            if(temp1.data != temp2.data){
+                temp1.next = temp2;
+                temp1 = temp2;
+            }
+            temp2 = temp2.next;
+        }
+        temp1.next = temp2;
+    }
+    private static void removeDuplicateFromSortedSLList(ListNode head) {
+        ListNode temp1 = head;
+        if(head == null){
+            return;
+        }
+        while(temp1.next != null){
+            if(temp1.data == temp1.next.data){
+                temp1.next = temp1.next.next;
+            }else {
+                temp1 = temp1.next;
+            }
+        }
+
     }
 
     private static int findNthNodeFromEnd(ListNode head, int n) {
